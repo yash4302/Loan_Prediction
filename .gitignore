@@ -9,6 +9,8 @@
 *.pot
 *.pyc
 __pycache__/
+Dataset/.ipynb_checkpoints
+Dataset/model_random_forest_83
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
