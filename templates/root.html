@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block heading %}
+Loan Prediction
+{% endblock %}
+
+{% block content %}
+    {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'signup' %}">Signup</a>
+      {% else %}
+      <a href="{% url 'loan' %}">Predict Loan Approval Status</a>
+      <a href="{% url 'amount' %}">Predict Minimum Loan Amount</a>
+      {% endif %}
+  {% endblock %}

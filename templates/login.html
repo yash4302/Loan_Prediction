@@ -1,11 +1,22 @@
-﻿<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block heading %}
+Login
+{% endblock %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+{% block content %}
+{% if WARNING %}
+<h1>{{ WARNING }}</h1>
+{% endif %}
+<div>
+  <form class="" action="{% url 'login' %}" method="post">
+     {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" name="username" value="">
 
-</body>
-</html>
+      <label for="password">Password</label>
+      <input type="password" name="password" value="">
+
+      <button type="submit" name="button">Login</button>
+  </form>
+</div>
+{% endblock %}
