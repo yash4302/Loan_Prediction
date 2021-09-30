@@ -141,9 +141,9 @@ def loan(request):
         prediction = predict(request)
         print(prediction)
         if prediction:
-            return render(request,'loan.html',{'years':years,'msg':'Your Loan Will get Approved :)'})
+            return render(request,'loan.html',{'years':years,'msg':'Your Loan Will get Approved :)','prediction':prediction})
         else:
-            return render(request,'loan.html',{'years':years,'msg':'Your Loan Will not get Approved :('})
+            return render(request,'loan.html',{'years':years,'msg':'Your Loan Will not get Approved :(','prediction':prediction})
 
 
 @login_required(login_url = 'login')
