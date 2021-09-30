@@ -9,12 +9,12 @@
 }
 
 .BODY {
-	background-color: rgba(138, 43, 226, 0.2);
+	background-color: rgb(244 67 54 / 20%);
 }
 
 .navbar {
 	padding: 2%;
-	background-color: blueviolet;
+	background-color: #e91e63;
 	color: white;
 	align-items: center;
 	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
@@ -107,7 +107,7 @@
 	padding: 3%;
 }
 
-.form-group input {
+.form-group input, .form-group select {
 	height: 42px;
 	border-radius: 10px;
 	border: 0;
@@ -141,7 +141,7 @@
 }
 
 #login_btn {
-	background-color: rgba(138, 43, 226, 1);
+	background-color: #e91e63;
 	border-radius: 10px;
 	border: 0px !important;
 	padding: 5px 10px;
