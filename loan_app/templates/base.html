@@ -3,8 +3,8 @@
 
 <head>
     {% load static %}
-    <meta charset="utf-8">
 
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
@@ -12,26 +12,25 @@
         {% endblock %}
     </title>
 
-    
     {% block links %}
     {% endblock %}
 </head>
 
-<body>
+<body class="BODY">
     <nav class="navbar">
         <h1>Loan Predictor</h1>
 
-        <div>
-            <a href="{% url 'root' %}">Home</a>
+        <ul>
+            <li><a href="{% url 'root' %}">Home</a></li>
             {% if not user.is_authenticated %}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'signup' %}">Signup</a>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Signup</a></li>
             {% else %}
-                <a href="{% url 'loan' %}">Predict Loan Approval Status</a>
-                <a href="{% url 'amount' %}">Predict Minimum Loan Amount</a>
-                <a href="{% url 'logout' %}">Logout</a>
+            <li><a href="{% url 'loan' %}">Predict Loan Approval Status</a></li>
+            <li><a href="{% url 'amount' %}">Predict Minimum Loan Amount</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
             {% endif %}
-        </div>
+        </ul>
     </nav>
 
     {% block content %}

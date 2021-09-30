@@ -1,5 +1,170 @@
-nav {
-	padding: 3%;
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Oswald');
+@import url('https://fonts.googleapis.com/css2?family=Coda');
+
+* {
+	margin: 0%;
+	padding: 0%;
+	font-family: 'Roboto';
+}
+
+.BODY {
+	background-color: rgba(138, 43, 226, 0.2);
+}
+
+.navbar {
+	padding: 2%;
 	background-color: blueviolet;
-	position: fixed;
+	color: white;
+	align-items: center;
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+}
+
+.navbar ul {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	width: 25%;
+	margin: 0%;
+	align-items: center;
+}
+
+	.navbar h1 {
+		display: inline-block;
+		font-family: Coda;
+		font-size: 250%;
+		font-weight: bold;
+		margin: 0%;
+		text-transform: uppercase;
+		text-align: center;
+		text-shadow: 2px 2px 2px black;
+	}
+
+	.navbar li {
+		padding: 3%;
+	}
+
+	.navbar a {
+		color: white;
+		text-decoration: none;
+		display: block;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.navbar li:hover {
+		border-radius: 10px;
+		box-shadow: -6px -6px 8px 0 rgba(0, 0, 0, 0.25), 4px 4px 6px 0 rgba(255, 255, 255, 0.3);
+	}
+
+	.navbar li:active {
+		border-radius: 25%;
+		box-shadow: -3px -3px 4px 0 rgba(0, 0, 0, 0.25), 2px 2px 3px 0 rgba(255, 255, 255, 0.3);
+	}
+
+	.navbar a:hover {
+		color: white;
+	}
+
+.alert {
+	text-align: center;
+	width: auto;
+	margin: 0% 25%;
+	margin-top: 2%;
+	box-shadow: 2px 2px 2px;
+}
+
+/*LOGIN Starts*/
+
+.main-section {
+	text-align: center !important;
+	margin: auto;
+}
+
+.modal-content {
+	background-color: rgba(138, 43, 226, 0.1) !important;
+	opacity: 1;
+	padding: 0 18px;
+	margin-top: 40%;
+	box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.25), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
+	border-radius: 25px !important;
+	border: 0px !important;
+}
+
+.login p {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-shadow: 2px 2px 2px gray;
+	font-family: Coda;
+}
+
+.form-input {
+	padding: 3%;
+}
+
+.form-group input {
+	height: 42px;
+	border-radius: 10px;
+	border: 0;
+	font-size: 18px;
+	letter-spacing: 0.5px;
+	margin-bottom: 15px;
+	margin-top: 1px;
+	box-shadow: inset 3px 3px 4px 0 rgba(0, 0, 0, 0.1), inset -3px -3px 4px 0 rgba(255, 255, 255, 0.5);
+}
+
+	.form-group input::placeholder {
+		color: #c0c0c0;
+	}
+
+.form-group p {
+	font-size: 18px;
+	letter-spacing: 0.5px;
+	margin-bottom: 1px;
+	margin-left: 3px;
+	color: white;
+	font-weight: bold;
+	text-align: left;
+	text-shadow: 2px 2px 2px gray;
+}
+
+.form-group button {
+	width: 45%;
+	display: inline-block;
+	margin: 3% 2%;
+	margin-bottom: 30px;
+}
+
+#login_btn {
+	background-color: rgba(138, 43, 226, 1);
+	border-radius: 10px;
+	border: 0px !important;
+	padding: 5px 10px;
+	letter-spacing: 1px;
+	box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
+}
+
+	#login_btn:active {
+		box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
+	}
+
+	#login_btn:hover {
+		box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.2), -3px -3px 3px 0 rgba(255, 255, 255, 0.5);
+	}
+
+/*LOGIN Ends*/
+
+@media(max-width: 840px){
+	.navbar {
+		flex-direction: column;
+	}
+
+		.navbar ul {
+			flex-direction: column;
+			width: 80%;
+		}
 }

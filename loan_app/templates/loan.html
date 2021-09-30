@@ -1,116 +1,115 @@
 {% extends 'base.html' %}
+
+{% load static %}
 {% block heading %}
-Loan Prediction
+Loan Approval Prediction
+{% endblock %}
+
+{% block links %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 {% endblock %}
 
 {% block content %}
+
 {% if msg %}
-<h2>{{ msg }}</h2>
+    <h2 class="alert alert-danger">{{ msg }}</h2>
 {% endif %}
-<div class="">
-  <h2>Enter Loan Details</h2>
-  <form class="" action="{% url 'loan' %}" method="post">
-    {% csrf_token %}
 
-    <label for="loan_amount">Loan Amount (₹)</label>
-    <input type="number" name="loan_amount" value="" required>
-<br>
-<br>
-    <label for="annual_income">Annual Income (₹)</label>
-    <input type="number" name="annual_income" value="" required>
-<br>
-<br>
-    <label for="credit_score">Current Credit Score</label>
-    <input type="number" name="credit_score" value="" required>
-<br>
-<br>
-    <label for="years_credit_history">Years of Credit History</label>
-    <input type="number" name="years_credit_history" value="" step="0.1" required>
-<br>
-<br>
-    <label for="current_credit_balance">Credit Card Balance (₹)</label>
-    <input type="number" name="current_credit_balance" value="" required>
-<br>
-<br>
-    <label for="number_of_credit_problems">Number Of Credit Problems</label>
-    <input type="number" name="number_of_credit_problems" value="" required>
-<br>
-<br>
-    <label for="monthly_debt">Monthly Debt (₹)</label>
-    <input type="number" name="monthly_debt" value="" required>
-<br>
-<br>
-    <label for="months_since_last_delinquent">Months Since Last Delinquent</label>
-    <input type="number" name="months_since_last_delinquent" value="" required>
-<br>
-<br>
-    <label for="number_of_open_accounts">Number of Open Accounts</label>
-    <input type="number" name="number_of_open_accounts" value="" required>
-<br>
-<br>
+    <div class="modal-dialog text-center">
+        <div class="col-sm-18 main-section">
+            <div class="modal-content" style="margin-top: 10%;">
 
-  <label for="bankruptcies">Bankruptcies</label>
-  <!-- Have You been Bankrupt Before ? If yes then Enter The number of times you've been bankrupt -->
-  <input type="number" name="bankruptcies" placeholder="Eg: 0" required>
-<br>
-<br>
+                <div class="login">
+                    <p style="font-size: 36px;">ENTER LOAN DETAILS</p>
+                </div>
 
-<label for="tax_liens">Tax Liens</label>
-<!-- Do you have any properties imposed to law because you were behind on tax payments ? If yes then Enter The number of properties you've kept under law -->
-<input type="number" name="tax_liens" placeholder="Eg: 0" required>
+                <div class="col-12 form-input">
+                    <form action="{% url 'loan' %}" method="post">
+                        {% csrf_token %}
 
-<br>
-<br>
+                        <div class="form-group">
 
-  <label for="years_in_current_job">Years In Current Job</label>
-  <select class="" name="years_in_current_job" required>
-  {% for i in years %}
-    <option value = {{i}} > {{i}} </option>
-  {% endfor %}
-    <option value="10">10+</option>
-  </select>
+                            <p>Loan Amount (₹)</p>
+                            <input type="number" class="form-control" name="loan_amount" value="" placeholder="Enter Loan Amount" autocomplete="off" required>
 
-<br>
-<br>
-  <label for="term">Term</label>
-  <select class="" name="term" required>
-    <option value="0">Short Term</option>
-    <option value="1">Long Term</option>
-  </select>
-<br>
-<br>
-  <label for="purpose">Purpose</label>
-  <select class="" name="purpose" required>
-    <option value="Home improvements">Home Improvements</option>
-    <option value="Debt consolidation">Debt Consolidation</option>
-    <option value="House">House</option>
-    <option value="Car">Car</option>
-    <option value="Business loan">Business Loan</option>
-    <option value="Major purchase">Major Purchase</option>
-    <option value="Take a trip">Take a Trip</option>
-    <option value="Small business">Small Business</option>
-    <option value="Medical bills">Medical Bills</option>
-    <option value="Wedding">Wedding</option>
-    <option value="Vacation">Vacation</option>
-    <option value="Educational expenses">Educational Expenses</option>
-    <option value="Moving">Moving</option>
-    <option value="Renewable Loan">Renewable Loan</option>
-    <option value="Other">Other</option>
-  </select>
+                            <p>Annual Income (₹)</p>
+                            <input type="number" class="form-control" name="annual_income" value="" placeholder="Enter Annual Income" autocomplete="off" required>
 
-  <br>
-  <br>
-    <label for="home_ownership">Home Ownership</label>
-    <select class="" name="home_ownership" required>
-      <option value="Home Mortgage">Home Mortgage</option>
-      <option value="Own Home">Own Home</option>
-      <option value="Rent">Rent</option>
-    </select>
-    <br>
-    <br>
-    <button type="submit" name="button">Predict</button>
+                            <p>Current Credit Score</p>
+                            <input type="number" class="form-control" name="credit_score" value="" placeholder="Enter Current Credit Score" autocomplete="off" required>
 
-  </form>
-</div>
+                            <p>Years of Credit History</p>
+                            <input type="number" class="form-control" name="years_credit_history" value="" step="0.1" placeholder="Enter Years Credit History" autocomplete="off" required>
 
+                            <p>Credit Card Balance (₹)</p>
+                            <input type="number" class="form-control" name="current_credit_balance" value="" placeholder="Enter Credit Card Balance" autocomplete="off" required>
+
+                            <p>Number of Credit Problems</p>
+                            <input type="number" class="form-control" name="number_of_credit_problems" value="" placeholder="Enter Number of Credit Problems" autocomplete="off" required>
+
+                            <p>Monthly Debt (₹)</p>
+                            <input type="number" class="form-control" name="monthly_debt" value="" placeholder="Enter Monthly Debt" autocomplete="off" required>
+
+                            <p>Months Since Last Delinquent</p>
+                            <input type="number" class="form-control" name="months_since_last_delinquent" value="" placeholder="Enter Months Since Last Delinquent" autocomplete="off" required>
+
+                            <p>Number of Open Accounts</p>
+                            <input type="number" class="form-control" name="number_of_open_accounts" value="" placeholder="Enter Number of Open Accounts" autocomplete="off" required>
+
+                            <!-- Have You been Bankrupt Before ? If yes then Enter The number of times you've been bankrupt -->
+                            <p>Bankruptcies</p>
+                            <input type="number" class="form-control" name="bankruptcies" value="" placeholder="Eg., 0" autocomplete="off" required>
+
+                            <!-- Do you have any properties imposed to law because you were behind on tax payments ? If yes then Enter The number of properties you've kept under law -->
+                            <p>Tax Liens</p>
+                            <input type="number" class="form-control" name="tax_liens" value="" placeholder="Eg., 0" autocomplete="off" required>
+
+                            <p>Years in Current Job</p>
+                            <select class="form-control" name="years_in_current_job" required>
+                                {% for i in years %}
+                                <option value={{i}}> {{i}} </option>
+                                {% endfor %}
+                                <option value="10">10+</option>
+                            </select>
+
+                            <p>Term</p>
+                            <select class="form-control" name="term" required>
+                                <option value="0">Short Term</option>
+                                <option value="1">Long Term</option>
+                            </select>
+
+                            <p>Purpose</p>
+                            <select class="form-control" name="purpose" required>
+                                <option value="Home improvements">Home Improvements</option>
+                                <option value="Debt consolidation">Debt Consolidation</option>
+                                <option value="House">House</option>
+                                <option value="Car">Car</option>
+                                <option value="Business loan">Business Loan</option>
+                                <option value="Major purchase">Major Purchase</option>
+                                <option value="Take a trip">Take a Trip</option>
+                                <option value="Small business">Small Business</option>
+                                <option value="Medical bills">Medical Bills</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Vacation">Vacation</option>
+                                <option value="Educational expenses">Educational Expenses</option>
+                                <option value="Moving">Moving</option>
+                                <option value="Renewable Loan">Renewable Loan</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                            <p>Home Ownership</p>
+                            <select class="form-control" name="home_ownership" required>
+                                <option value="Home Mortgage">Home Mortgage</option>
+                                <option value="Own Home">Own Home</option>
+                                <option value="Rent">Rent</option>
+                            </select>
+
+                            <button type="submit" name="button" id="login_btn" class="btn btn-success">Predict</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
