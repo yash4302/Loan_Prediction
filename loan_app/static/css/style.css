@@ -2,6 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald');
 @import url('https://fonts.googleapis.com/css2?family=Coda');
 
+:root {
+	--purpleColor: rgb(138, 43, 226);
+	--purpleTransperant: rgba(138, 43, 226, 0.2);
+	--redColor: #e91e63;
+	--redTransperant: rgb(244 67 54 / 20%);
+	--orangeColor: rgb(255 152 0);
+	--orangeTransperant: rgb(255 152 0 / 20%);
+	--brownColor: rgb(121 85 72);
+	--brownTransperant: rgb(121 85 72 / 20%);
+	--greenColor: rgb(76 175 80);
+	--greenTransperant: rgb(76 175 80 / 20%);
+	--blueColor: rgb(33 150 243);
+	--blueTransperant: rgb(33 150 243 / 20%);
+	--currentColor: var(--redColor);
+	--currentTransperant: var(--redTransperant);
+}
+
 * {
 	margin: 0%;
 	padding: 0%;
@@ -9,12 +26,12 @@
 }
 
 .BODY {
-	background-color: rgb(244 67 54 / 20%);
+	background-color: var(--currentTransperant);
 }
 
 .navbar {
 	padding: 2%;
-	background-color: #e91e63;
+	background-color: var(--currentColor);
 	color: white;
 	align-items: center;
 	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
@@ -24,14 +41,14 @@
 	display: flex;
 	justify-content: space-between;
 	list-style: none;
-	width: 25%;
+	width: 40%;
 	margin: 0%;
 	align-items: center;
 }
 
 	.navbar h1 {
 		display: inline-block;
-		font-family: Coda;
+		font-family: 'Coda';
 		font-size: 250%;
 		font-weight: bold;
 		margin: 0%;
@@ -41,7 +58,15 @@
 	}
 
 	.navbar li {
-		padding: 3%;
+		padding: 2%;
+	}
+
+	.navbar select, .navbar option, .navbar select:focus {
+		background-color: var(--currentColor);
+		border: 0px;
+		color: white;
+		padding: 1%;
+		width: fit-content;
 	}
 
 	.navbar a {
@@ -58,7 +83,6 @@
 	}
 
 	.navbar li:active {
-		border-radius: 25%;
 		box-shadow: -3px -3px 4px 0 rgba(0, 0, 0, 0.25), 2px 2px 3px 0 rgba(255, 255, 255, 0.3);
 	}
 
@@ -83,7 +107,7 @@
 }
 
 .modal-content {
-	background-color: rgba(138, 43, 226, 0.1) !important;
+	background-color: var(--currentTransperant) !important;
 	opacity: 1;
 	padding: 0 18px;
 	margin-top: 40%;
@@ -141,7 +165,7 @@
 }
 
 #login_btn {
-	background-color: #e91e63;
+	background-color: var(--currentColor);
 	border-radius: 10px;
 	border: 0px !important;
 	padding: 5px 10px;

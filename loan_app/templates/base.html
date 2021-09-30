@@ -13,12 +13,13 @@
     </title>
 
     {% block links %}
+    <script src="{% static 'js/theme.js' %}"></script>
     {% endblock %}
 </head>
 
 <body class="BODY">
     <nav class="navbar">
-        <h1><a href="{% url 'root' %}">Loan Predictor</a></h1>
+        <a href="{% url 'root' %}"><h1>Loan Predictor</h1></a>
         <ul>
             <li><a href="{% url 'root' %}">Home</a></li>
             {% if not user.is_authenticated %}
@@ -29,6 +30,16 @@
             <li><a href="{% url 'amount' %}">Predict Minimum Loan Amount</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% endif %}
+            <li>
+                <select class="form-control" id="theme" onchange="changeColor()">
+                    <option value="Red">Red</option>
+                    <option value="Purple">Purple</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Brown">Brown</option>
+                </select>
+            </li>
         </ul>
     </nav>
 
