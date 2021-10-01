@@ -6,6 +6,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/0c287f6377.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'hand-holding-usd-solid.svg' %}" />
 
     <title>
         {% block heading %}
@@ -19,7 +21,7 @@
 
 <body class="BODY">
     <nav class="navbar">
-        <a href="{% url 'root' %}"><h1>Loan Predictor</h1></a>
+        <a href="{% url 'root' %}"><h1><i class="fas fa-hand-holding-usd"></i> Loan Predictor</h1></a>
         <ul>
             <li><a href="{% url 'root' %}">Home</a></li>
             {% if not user.is_authenticated %}

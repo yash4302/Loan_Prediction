@@ -15,8 +15,8 @@
 	--greenTransperant: rgb(76 175 80 / 20%);
 	--blueColor: rgb(33 150 243);
 	--blueTransperant: rgb(33 150 243 / 20%);
-	--currentColor: var(--redColor);
-	--currentTransperant: var(--redTransperant);
+	--currentColor: var(--brownColor);
+	--currentTransperant: var(--brownTransperant);
 }
 
 * {
@@ -182,6 +182,36 @@
 	}
 
 /*LOGIN Ends*/
+
+/* Card starts*/
+
+.card {
+	border-radius: 15px !important;
+	background-color: var(--currentTransperant) !important;
+	margin: 3% 7%;
+	box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
+	border: 3px solid var(--currentColor) !important;
+}
+
+.card-header {
+	background-color: var(--currentColor) !important;
+	border-radius: 15px !important;
+	color: white;
+	font-family: Coda;
+	font-weight: bold;
+	box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
+	text-shadow: 2px 2px 2px black;
+	font-size: 250%;
+	margin: -2px;
+	padding: 1% 2% !important;
+}
+
+.card-body {
+	padding: 2% !important;
+	font-size: 120%;
+}
+
+/* Card ends*/
 
 @media(max-width: 840px){
 	.navbar {
