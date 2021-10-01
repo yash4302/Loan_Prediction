@@ -195,15 +195,16 @@
 
 .card-header {
 	background-color: var(--currentColor) !important;
+	margin: -2px;
+	padding: 1% 2% !important;
 	border-radius: 15px !important;
 	color: white;
+	font-size: 250%;
 	font-family: Coda;
 	font-weight: bold;
 	box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
 	text-shadow: 2px 2px 2px black;
-	font-size: 250%;
-	margin: -2px;
-	padding: 1% 2% !important;
+	text-transform: uppercase;
 }
 
 .card-body {
@@ -212,6 +213,14 @@
 }
 
 /* Card ends*/
+
+.img img {
+	height: 80%;
+	position: fixed;
+	opacity: 5%;
+	top: 10%;
+	left: 28%;
+}
 
 @media(max-width: 840px){
 	.navbar {
