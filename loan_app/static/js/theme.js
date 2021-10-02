@@ -48,6 +48,17 @@ function getColor_setTheme() {
 	rootVariables.style.setProperty('--currentTransperant', color+'20');
 }
 
+function responsiveClass() {
+	// Link: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
+	var x = document.getElementById("myTopnav");
+	if (x.className === "navbar") {
+		x.className += " responsive";
+	}
+	else {
+		x.className = "navbar";
+	}
+}
+
 window.onload = function () {
 	// Try to read from local storage, otherwise set to default
 	var themeSelector = document.getElementById("theme");
@@ -56,7 +67,7 @@ window.onload = function () {
 	if (theme == "Random") {
 		currentTheme = localStorage.getItem("mytheme") || document.getElementById("colorPicker").value;
 	} else {
-		currentTheme = localStorage.getItem("mytheme") || "Red";
+		currentTheme = localStorage.getItem("mytheme") || "Brown";
 	}
 	
 	let currentColor = localStorage.getItem("mycolor") || "#000000";

@@ -57,6 +57,10 @@
 		text-shadow: 2px 2px 2px black;
 	}
 
+	.navbar ul {
+		padding: 0%;
+	}
+
 	.navbar li {
 		padding: 2%;
 	}
@@ -65,8 +69,10 @@
 		background-color: var(--currentColor);
 		border: 0px;
 		color: white;
-		padding: 1%;
+		padding: 2%;
 		width: fit-content;
+		text-align: center;
+		box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25), inset -2px -2px 3px 0 rgba(255, 255, 255, 0.3);
 	}
 
 	.navbar a {
@@ -90,6 +96,10 @@
 		color: white;
 	}
 
+	.navbar .icon {
+		display: none;
+	}
+
 .alert {
 	text-align: center;
 	width: auto;
@@ -110,7 +120,7 @@
 	background-color: var(--currentTransperant) !important;
 	opacity: 1;
 	padding: 0 18px;
-	margin-top: 40%;
+	margin-top: 35%;
 	box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.25), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
 	border-radius: 25px !important;
 	border: 0px !important;
@@ -140,7 +150,7 @@
 	letter-spacing: 0.5px;
 	margin-bottom: 15px;
 	margin-top: 1px;
-	box-shadow: inset 3px 3px 4px 0 rgba(0, 0, 0, 0.1), inset -3px -3px 4px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: inset 3px 3px 4px 0 rgba(0, 0, 0, 0.15), inset -3px -3px 4px 0 rgba(255, 255, 255, 0.5);
 }
 
 	.form-group input::placeholder {
@@ -201,7 +211,7 @@
 	padding: 1% 2% !important;
 	border-radius: 15px !important;
 	color: white;
-	font-size: 250%;
+	font-size: 200%;
 	font-family: Coda;
 	font-weight: bold;
 	box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
@@ -223,32 +233,48 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 5% 25%;
 }
 
 	.img h2 {
-		font-size: 2500%;
+		font-size: 3000%;
 		opacity: 7%;
 		color: var(--currentColor);
 		text-shadow: 6px 6px 8px black;
 	}
 
-@media(max-width: 1024px){
+@media(max-width: 1024px) {
 	.navbar {
-		flex-direction: column;
+		flex-direction: row;
 	}
 
 		.navbar ul {
-			flex-direction: column;
-			width: 80%;
+			width: 100%;
+			display: none;
 		}
 
+		.navbar .icon {
+			float: right;
+			display: inline-block;
+			text-shadow: 2px 2px 2px black;
+		}
+
+		.navbar.responsive {
+			position: relative;
+		}
+
+		.navbar.responsive ul {
+			display: flex;
+		}
+
+	.modal-content {
+		margin-top: 20%;
+	}
+
 	.img {
-		padding: 10% 5%;
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.img h2 {
-		font-size: 1000%;
+		font-size: 1500%;
 	}
 }
