@@ -114,6 +114,7 @@
 	box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.25), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
 	border-radius: 25px !important;
 	border: 0px !important;
+	backdrop-filter: blur( 4px );
 }
 
 .login p {
@@ -191,6 +192,7 @@
 	margin: 3% 7%;
 	box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.2), -4px -4px 6px 0 rgba(255, 255, 255, 0.5);
 	border: 3px solid var(--currentColor) !important;
+	backdrop-filter: blur( 4px );
 }
 
 .card-header {
@@ -214,15 +216,24 @@
 
 /* Card ends*/
 
-.img img {
-	height: 80%;
+.img {
+	height: 100%;
+	width: 100%;
 	position: fixed;
-	opacity: 5%;
-	top: 10%;
-	left: 28%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5% 25%;
 }
 
-@media(max-width: 840px){
+	.img h2 {
+		font-size: 2500%;
+		opacity: 7%;
+		color: var(--currentColor);
+		text-shadow: 6px 6px 8px black;
+	}
+
+@media(max-width: 1024px){
 	.navbar {
 		flex-direction: column;
 	}
@@ -231,4 +242,13 @@
 			flex-direction: column;
 			width: 80%;
 		}
+
+	.img {
+		padding: 10% 5%;
+		align-items: flex-start;
+	}
+
+	.img h2 {
+		font-size: 1000%;
+	}
 }
