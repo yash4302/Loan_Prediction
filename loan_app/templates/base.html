@@ -26,11 +26,11 @@
 
     <nav class="navbar" id="myTopnav">
         <a href="{% url 'root' %}"><h1><i class="fas fa-hand-holding-usd"></i> Loan Predictor</h1></a>
-        
+
         <a href="javascript:void(0);" onclick="responsiveClass()" class="icon">
             <i class="fa fa-bars"></i>
         </a>
-        
+
         <ul>
             <li><a href="{% url 'root' %}">Home</a></li>
             {% if not user.is_authenticated %}
@@ -44,7 +44,7 @@
             <li>
                 THEME
                 <select class="form-control" id="theme" onchange="changeColor()">
-                    <option value="Red">Red</option>
+                    <option value="Red">Pink</option>
                     <option value="Purple">Purple</option>
                     <option value="Orange">Orange</option>
                     <option value="Green">Green</option>

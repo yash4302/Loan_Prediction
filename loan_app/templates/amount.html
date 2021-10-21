@@ -20,7 +20,7 @@ Loan Amount Prediction
 		<div class="modal-content" style="margin-top: 10%;">
 
 			<div class="login">
-				<p style="font-size: 36px;">ENTER DETAILS</p>
+				<p style="font-size: 36px;">ENTER FINANCIAL DETAILS</p>
 			</div>
 
 			<div class="col-12 form-input">
@@ -30,12 +30,12 @@ Loan Amount Prediction
 					<div class="form-group">
 
 						<p>Monthly Income (₹)</p>
-						<input type="number" class="form-control" name="monthly_income" value="" placeholder="Enter Monthly Income" autocomplete="off" required>
+						<input type="number" class="form-control" name="monthly_income" value="" placeholder="Enter Monthly Income" autocomplete="off" required min="10000">
 
 						<p>EMI Amount (₹)</p>
-						<input type="number" class="form-control" name="emi" value="" placeholder="Enter EMI Amount" autocomplete="off" required>
+						<input type="number" class="form-control" name="emi" value="" placeholder="Enter EMI Amount" autocomplete="off" required min="1000">
 
-						<p>Years (₹)</p>
+						<p>Years</p>
 						<input type="number" class="form-control" name="years" value="" placeholder="Enter Years" autocomplete="off" required>
 
 						<p>Other Salary (₹)</p>
