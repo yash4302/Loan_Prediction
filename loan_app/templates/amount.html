@@ -6,10 +6,46 @@ Loan Amount Prediction
 {% endblock %}
 
 {% block links %}
-	<script src="{% static 'js/theme.js' %}"></script>
-	<link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="{% static 'js/theme.js' %}"></script>
+<link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 {% endblock %}
 
 {% block content %}
+{% if amount %}
+<h2 class="alert alert-success">You Can Get Loan For Atleast ₹ {{ amount }}</h2>
+{% endif %}
+<div class="modal-dialog text-center modal-lg">
+	<div class="col-sm-18 main-section">
+		<div class="modal-content" style="margin-top: 10%;">
+
+			<div class="login">
+				<p style="font-size: 36px;">ENTER DETAILS</p>
+			</div>
+
+			<div class="col-12 form-input">
+				<form action="{% url 'amount' %}" method="post">
+					{% csrf_token %}
+
+					<div class="form-group">
+
+						<p>Monthly Income (₹)</p>
+						<input type="number" class="form-control" name="monthly_income" value="" placeholder="Enter Monthly Income" autocomplete="off" required>
+
+						<p>EMI Amount (₹)</p>
+						<input type="number" class="form-control" name="emi" value="" placeholder="Enter EMI Amount" autocomplete="off" required>
+
+						<p>Years (₹)</p>
+						<input type="number" class="form-control" name="years" value="" placeholder="Enter Years" autocomplete="off" required>
+
+						<p>Other Salary (₹)</p>
+						<input type="number" class="form-control" name="other_income_monthly" value="" placeholder="Enter Other Salary Monthly" autocomplete="off" required>
+
+						<button type="submit" name="button" id="login_btn" class="btn btn-success">Predict</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

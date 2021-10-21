@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 import pickle
+from . import loanamt_prediction
 
 def root(request):
     return render(request,'root.html')
@@ -145,10 +146,20 @@ def loan(request):
         else:
             return render(request,'loan.html',{'years':years,'msg':'Your Loan Will not get Approved :(','prediction':prediction})
 
-
 @login_required(login_url = 'login')
 def amount(request):
-    return render(request,'amount.html')
+    if request.method == 'GET':
+        return render(request,'amount.html')
+    elif request.method == 'POST':
+
+        monthly_income = int(request.POST.get('monthly_income'))
+        emi =  int(request.POST.get('emi'))
+        years =  int(request.POST.get('years'))
+        other_income =  int(request.POST.get('other_income_monthly'))
+
+        amount = int(loanamt_prediction.predict_min_amount(monthly_income,emi,years,other_income))
+
+        return render(request,'amount.html',{'amount':amount})
 
 @login_required(login_url = 'login')
 def logout(request):
