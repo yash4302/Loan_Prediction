@@ -1,9 +1,10 @@
+import os
+import joblib
+from django.contrib import auth
+from . import loanamt_prediction
+from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.contrib import auth
-import pickle
-from . import loanamt_prediction
 
 
 def root(request):
@@ -49,7 +50,8 @@ def signup(request):
             return render(request,'signup.html',{"WARNING":"Passwords Not Matching!"})
 
 def predict(request):
-    model = pickle.load(open('DataSet/model_random_forest','rb'))
+    path = os.path.join(os.path.join(os.getcwd(),"Dataset"),"model_random_forest.pkl")
+    model = joblib.load(path)
 
     loan_amount = request.POST.get('loan_amount')
     credit_score = request.POST.get('credit_score')
