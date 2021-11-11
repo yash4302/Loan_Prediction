@@ -17,7 +17,7 @@ def predict_min_amount(sal,emi,yr,oth):
         else:
     #the loan amount for certain period of year fluctuates much because of an undetermined constant
     #here the constant is 46.5(subject to change as we move towards accuracy)
-            loan=sal*47*(math.log(yr,10))
+            loan=sal*46.5*(math.log(yr,10))
     #incase person has pending loan deduct the money of it
         loan=loan-(float(pow(1.00938504,1000))*emi/1000)
 
