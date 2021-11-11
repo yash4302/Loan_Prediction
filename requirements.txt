@@ -16,4 +16,3 @@ six==1.16.0
 sklearn==0.0
 sqlparse==0.4.2
 threadpoolctl==3.0.0
-whitenoise==5.3.0
