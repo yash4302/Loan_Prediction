@@ -14,9 +14,7 @@ from pathlib import Path
 import os
 import environ
 import django_heroku
-import dj_database_url
-
-
+# import dj_database_url
 
 # Activate Django-Heroku.
 django_heroku.settings(locals(), staticfiles=False)
@@ -92,11 +90,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-        'CONN_MAX_AGE': 500,
     }
 }
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES={}
+# DATABASES['default'] =  dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

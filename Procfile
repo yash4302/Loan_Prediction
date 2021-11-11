@@ -1,1 +1,1 @@
-web: bin/start-pgbouncer-stunnel gunicorn Loan_Prediction.wsgi --log-file -
+web: python manage.py runserver 0.0.0.0:5000
