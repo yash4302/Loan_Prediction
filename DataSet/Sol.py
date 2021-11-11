@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
+# In[1]:
 
 
 import pandas as pd
@@ -12,7 +12,7 @@ import pickle
 import joblib
 
 
-# In[7]:
+# In[2]:
 
 
 df = pd.read_csv('credit_train.csv')
@@ -23,7 +23,7 @@ df = df.drop('index',axis=1)
 df
 
 
-# In[8]:
+# In[3]:
 
 
 temp = df['Purpose'].str.capitalize()
@@ -33,7 +33,7 @@ df2 = df2.drop(['Loan ID','Customer ID'],axis = 1)
 df2
 
 
-# In[9]:
+# In[4]:
 
 
 x = df2['Home Ownership']
@@ -47,7 +47,7 @@ df2 = pd.concat([df2,x],axis=1)
 df2
 
 
-# In[10]:
+# In[5]:
 
 
 x = df2['Number of Credit Problems'].isnull()
@@ -56,7 +56,7 @@ for i in x:
         print("Has Nulls")
 
 
-# In[11]:
+# In[6]:
 
 
 z = list(df['Years in current job'])
@@ -98,7 +98,7 @@ df3 = df3.drop(['Years in current job'],axis=1)
 df3
 
 
-# In[12]:
+# In[7]:
 
 
 # fill nulls
@@ -124,7 +124,7 @@ df3.fillna(value = fill_nulls,inplace=True)
 df3
 
 
-# In[13]:
+# In[8]:
 
 
 df4 = pd.get_dummies(df3['Loan Status'], drop_first=True) # for loan status
@@ -137,27 +137,27 @@ newdf2 = pd.concat([newdf,df4,df5,df6,df7],axis = 1)
 newdf2
 
 
-# In[14]:
+# In[9]:
 
 
 X = newdf2.drop(['Fully Paid','Maximum Open Credit'],axis=1)
 X
 
 
-# In[15]:
+# In[10]:
 
 
 Y = newdf2['Fully Paid']
 Y
 
 
-# In[16]:
+# In[11]:
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 0.001, random_state = 45)
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 0.9, random_state = 45)
 
 
-# In[17]:
+# In[12]:
 
 
 # this model is to predict if we get loan or not
@@ -165,7 +165,7 @@ model = RandomForestClassifier()
 model.fit(X_train,y_train)
 
 
-# In[18]:
+# In[13]:
 
 
 model.score(X_test,y_test)
@@ -177,33 +177,33 @@ model.score(X_test,y_test)
 joblib.dump(model,"model_random_forest.pkl")
 
 
-# In[21]:
+# In[15]:
 
 
 # joblib_model = joblib.load("model_random_forest.pkl")
 # joblib_model
 
 
-# In[25]:
+# In[16]:
 
 
 # joblib_model.predict(X_test)
 
 
-# In[14]:
+# In[17]:
 
 
 # pickle.dump(model, open('model_random_forest', 'wb'))
 
 
-# In[15]:
+# In[18]:
 
 
 # x = pickle.load(open('model_random_forest','rb'))
 # x
 
 
-# In[16]:
+# In[19]:
 
 
 # # this model is to predict amount of loan which we can get
@@ -216,31 +216,31 @@ joblib.dump(model,"model_random_forest.pkl")
 # reverse_model.score(X_test,y_test)
 
 
-# In[17]:
+# In[20]:
 
 
 # X.columns
 
 
-# In[18]:
+# In[21]:
 
 
 # len(X.columns)
 
 
-# In[19]:
+# In[22]:
 
 
 # df2['Purpose'].unique()
 
 
-# In[20]:
+# In[23]:
 
 
 # df2['Home Ownership'].unique()
 
 
-# In[21]:
+# In[24]:
 
 
 # x
@@ -250,10 +250,4 @@ joblib.dump(model,"model_random_forest.pkl")
 
 # y
 # charged off not there in loan Status
-
-
-# In[ ]:
-
-
-
 
