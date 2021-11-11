@@ -50,7 +50,8 @@ def signup(request):
             return render(request,'signup.html',{"WARNING":"Passwords Not Matching!"})
 
 def predict(request):
-    path = os.path.join(os.path.join(os.getcwd(),"Dataset"),"model_random_forest.pkl")
+    path = os.path.join(os.path.join(os.getcwd(),'loan_app'),"model_random_forest.pkl")
+    print(path)
     model = joblib.load(path)
 
     loan_amount = request.POST.get('loan_amount')
