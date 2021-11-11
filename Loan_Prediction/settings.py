@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import environ
 import django_heroku
-# import dj_database_url
+import dj_database_url
 
 # Activate Django-Heroku.
 django_heroku.settings(locals(), staticfiles=False)
@@ -34,7 +34,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['loan-predictor-ml.herokuapp.com','localhost', '127.0.0.1']
 
@@ -42,13 +42,13 @@ ALLOWED_HOSTS = ['loan-predictor-ml.herokuapp.com','localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'loan_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'loan_app',
 ]
 
 MIDDLEWARE = [
@@ -92,8 +92,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# DATABASES={}
-# DATABASES['default'] =  dj_database_url.config()
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
