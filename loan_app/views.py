@@ -5,6 +5,7 @@ from django.contrib import auth
 import pickle
 from . import loanamt_prediction
 
+
 def root(request):
     return render(request,'root.html')
 
