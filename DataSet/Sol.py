@@ -151,13 +151,13 @@ Y = newdf2['Fully Paid']
 Y
 
 
-# In[11]:
+# In[25]:
 
 
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 0.9, random_state = 45)
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 0.001, random_state = 45)
 
 
-# In[12]:
+# In[26]:
 
 
 # this model is to predict if we get loan or not
@@ -165,42 +165,42 @@ model = RandomForestClassifier()
 model.fit(X_train,y_train)
 
 
-# In[13]:
+# In[27]:
 
 
 model.score(X_test,y_test)
 
 
-# In[14]:
+# In[28]:
 
 
-joblib.dump(model,"model_random_forest.pkl")
+# joblib.dump(model,"model_random_forest.pkl")
 
 
-# In[15]:
+# In[29]:
 
 
 # joblib_model = joblib.load("model_random_forest.pkl")
 # joblib_model
 
 
-# In[16]:
+# In[30]:
 
 
 # joblib_model.predict(X_test)
 
 
-# In[17]:
+# In[31]:
 
 
-# pickle.dump(model, open('model_random_forest', 'wb'))
+pickle.dump(model, open('model_random_forest', 'wb'))
 
 
-# In[18]:
+# In[32]:
 
 
-# x = pickle.load(open('model_random_forest','rb'))
-# x
+x = pickle.load(open('model_random_forest','rb'))
+x
 
 
 # In[19]:
@@ -216,16 +216,16 @@ joblib.dump(model,"model_random_forest.pkl")
 # reverse_model.score(X_test,y_test)
 
 
-# In[20]:
+# In[17]:
 
 
-# X.columns
+X.columns
 
 
-# In[21]:
+# In[18]:
 
 
-# len(X.columns)
+len(X.columns)
 
 
 # In[22]:
